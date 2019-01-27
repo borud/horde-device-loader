@@ -46,7 +46,10 @@ func main() {
 		log.Fatal("Error creating client:", err)
 	}
 
-	// Process the CSV file and add each entry to Horde.  If we
+	// Process the CSV file and add each entry to Horde.  If an entry
+	// fails we keep going.  One reason for failure might be that the
+	// device already exists.  You should always check the output to
+	// ensure that everything went fine.
 	for {
 		line, err := r.Read()
 		if err == io.EOF {
