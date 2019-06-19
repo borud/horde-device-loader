@@ -64,9 +64,9 @@ func main() {
 		imsi := line[2]
 
 		createdDevice, err := client.CreateDevice(*collectionID, nbiot.Device{
-			CollectionID: collectionID,
-			IMEI:         &imei,
-			IMSI:         &imsi,
+			CollectionID: *collectionID,
+			IMEI:         imei,
+			IMSI:         imsi,
 			Tags: map[string]string{
 				"name": name,
 			},
